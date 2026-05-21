@@ -1,0 +1,84 @@
+{
+  "fiscal_year": "FY2024",
+  "total_revenue_trillion": 12.96,
+  "segments": [
+    {
+      "code": "G&NS",
+      "name_ja": "ゲーム & ネットワークサービス",
+      "name_en": "Game & Network Services",
+      "revenue_trillion": 4.54,
+      "revenue_share_pct": 35.0,
+      "yoy_change_pct": 8.9,
+      "operating_income_billion": 414.8,
+      "operating_margin_pct": 9.1,
+      "color": "#00D9FF"
+    },
+    {
+      "code": "ET&S",
+      "name_ja": "エンタテインメント・テクノロジー & サービス",
+      "name_en": "Entertainment, Technology & Services",
+      "revenue_trillion": 2.36,
+      "revenue_share_pct": 18.2,
+      "yoy_change_pct": -2.2,
+      "operating_income_billion": 190.9,
+      "operating_margin_pct": 8.1,
+      "color": "#8DF701"
+    },
+    {
+      "code": "MUSIC",
+      "name_ja": "音楽",
+      "name_en": "Music",
+      "revenue_trillion": 1.82,
+      "revenue_share_pct": 14.0,
+      "yoy_change_pct": 14.1,
+      "operating_income_billion": 357.3,
+      "operating_margin_pct": 19.6,
+      "color": "#4FACFE"
+    },
+    {
+      "code": "I&SS",
+      "name_ja": "イメージング & センシング・ソリューション",
+      "name_en": "Imaging & Sensing Solutions",
+      "revenue_trillion": 1.71,
+      "revenue_share_pct": 13.2,
+      "yoy_change_pct": 13.9,
+      "operating_income_billion": 261.1,
+      "operating_margin_pct": 15.2,
+      "color": "#9B7EE8"
+    },
+    {
+      "code": "PICTURES",
+      "name_ja": "映画",
+      "name_en": "Pictures",
+      "revenue_trillion": 1.50,
+      "revenue_share_pct": 11.6,
+      "yoy_change_pct": 0.8,
+      "operating_income_billion": 117.3,
+      "operating_margin_pct": 7.8,
+      "color": "#C168D6"
+    },
+    {
+      "code": "FINANCIAL",
+      "name_ja": "金融",
+      "name_en": "Financial Services",
+      "revenue_trillion": 0.92,
+      "revenue_share_pct": 7.1,
+      "yoy_change_pct": -47.6,
+      "operating_income_billion": 130.5,
+      "operating_margin_pct": 14.2,
+      "color": "#E364B0",
+      "note": "2025年10月にスピンオフ予定"
+    },
+    {
+      "code": "OTHERS",
+      "name_ja": "その他",
+      "name_en": "Others",
+      "revenue_trillion": 0.083,
+      "revenue_share_pct": 0.6,
+      "yoy_change_pct": 8.8,
+      "operating_income_billion": -18.0,
+      "operating_margin_pct": -21.8,
+      "color": "#475569"
+    }
+  ]
+}

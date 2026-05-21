@@ -1204,27 +1204,8 @@
     <div class="section-label scroll-reveal">
       <span><span class="num">01</span>Business Highlights</span>
     </div>
-    <div class="kpi-grid">
-      <div class="kpi-card scroll-reveal">
-        <div class="kpi-label">Revenue / FY24</div>
-        <div class="kpi-value">¥<span class="countup" data-target="13.0" data-decimals="1">0.0</span><span class="unit">T</span></div>
-        <div class="kpi-delta up">▲ +8.5% YoY</div>
-      </div>
-      <div class="kpi-card scroll-reveal">
-        <div class="kpi-label">Operating Income</div>
-        <div class="kpi-value">¥<span class="countup" data-target="1.2" data-decimals="1">0.0</span><span class="unit">T</span></div>
-        <div class="kpi-delta up">▲ +12.3% YoY</div>
-      </div>
-      <div class="kpi-card scroll-reveal">
-        <div class="kpi-label">Stock Price (TYO)</div>
-        <div class="kpi-value">¥<span class="countup" data-target="2840" data-decimals="0">0</span></div>
-        <div class="kpi-delta up">▲ +12.5 (+0.44%)</div>
-      </div>
-      <div class="kpi-card scroll-reveal">
-        <div class="kpi-label">Market Cap</div>
-        <div class="kpi-value">¥<span class="countup" data-target="17.5" data-decimals="1">0.0</span><span class="unit">T</span></div>
-        <div class="kpi-delta flat">— Real-time</div>
-      </div>
+    <div class="kpi-grid" id="kpi-grid">
+      <!-- KPI cards are rendered from SONY_DATA.kpi in the script block below. -->
     </div>
   </div>
 </section>
@@ -1238,100 +1219,18 @@
 
     <div class="segments-grid">
       <div class="donut-wrap" id="donut-wrap">
-        <svg class="donut-svg" viewBox="0 0 200 200">
-          <circle class="donut-segment" cx="100" cy="100" r="80" stroke="#00D9FF" data-len="155.82" data-offset="0"/>
-          <circle class="donut-segment" cx="100" cy="100" r="80" stroke="#8DF701" data-len="95.50" data-offset="-155.82"/>
-          <circle class="donut-segment" cx="100" cy="100" r="80" stroke="#4FACFE" data-len="70.37" data-offset="-251.32"/>
-          <circle class="donut-segment" cx="100" cy="100" r="80" stroke="#9B7EE8" data-len="60.32" data-offset="-321.69"/>
-          <circle class="donut-segment" cx="100" cy="100" r="80" stroke="#C168D6" data-len="55.29" data-offset="-382.01"/>
-          <circle class="donut-segment" cx="100" cy="100" r="80" stroke="#E364B0" data-len="50.27" data-offset="-437.30"/>
-          <circle class="donut-segment" cx="100" cy="100" r="80" stroke="#475569" data-len="15.08" data-offset="-487.57"/>
+        <svg class="donut-svg" viewBox="0 0 200 200" id="donut-svg">
+          <!-- Donut segments are rendered by JS from data.segments -->
         </svg>
         <div class="donut-center">
           <div class="donut-center-label">Total Revenue</div>
-          <div class="donut-center-value">¥13.0T</div>
-          <div class="donut-center-unit">FY24</div>
+          <div class="donut-center-value" id="donut-center-value">¥—</div>
+          <div class="donut-center-unit" id="donut-center-unit">FY—</div>
         </div>
       </div>
 
-      <div class="segment-list">
-        <div class="segment-item">
-          <div class="segment-marker" style="background: #00D9FF; box-shadow: 0 0 8px #00D9FF;"></div>
-          <div class="segment-info">
-            <div class="segment-code">G&NS</div>
-            <div class="segment-name">ゲーム & ネットワークサービス</div>
-          </div>
-          <div class="segment-value">
-            <div class="num">¥4.2T</div>
-            <div class="pct">31.2%</div>
-          </div>
-        </div>
-        <div class="segment-item">
-          <div class="segment-marker" style="background: #8DF701; box-shadow: 0 0 8px #8DF701;"></div>
-          <div class="segment-info">
-            <div class="segment-code">ET&S</div>
-            <div class="segment-name">エンタテインメント・テクノロジー &amp; サービス</div>
-          </div>
-          <div class="segment-value">
-            <div class="num">¥2.5T</div>
-            <div class="pct">19.0%</div>
-          </div>
-        </div>
-        <div class="segment-item">
-          <div class="segment-marker" style="background: #4FACFE;"></div>
-          <div class="segment-info">
-            <div class="segment-code">I&SS</div>
-            <div class="segment-name">イメージング & センシング・ソリューション</div>
-          </div>
-          <div class="segment-value">
-            <div class="num">¥1.8T</div>
-            <div class="pct">14.0%</div>
-          </div>
-        </div>
-        <div class="segment-item">
-          <div class="segment-marker" style="background: #9B7EE8;"></div>
-          <div class="segment-info">
-            <div class="segment-code">MUSIC</div>
-            <div class="segment-name">音楽</div>
-          </div>
-          <div class="segment-value">
-            <div class="num">¥1.7T</div>
-            <div class="pct">12.0%</div>
-          </div>
-        </div>
-        <div class="segment-item">
-          <div class="segment-marker" style="background: #C168D6;"></div>
-          <div class="segment-info">
-            <div class="segment-code">PICTURES</div>
-            <div class="segment-name">映画</div>
-          </div>
-          <div class="segment-value">
-            <div class="num">¥1.5T</div>
-            <div class="pct">11.0%</div>
-          </div>
-        </div>
-        <div class="segment-item">
-          <div class="segment-marker" style="background: #E364B0;"></div>
-          <div class="segment-info">
-            <div class="segment-code">FINANCIAL</div>
-            <div class="segment-name">金融</div>
-          </div>
-          <div class="segment-value">
-            <div class="num">¥1.3T</div>
-            <div class="pct">10.0%</div>
-          </div>
-        </div>
-        <div class="segment-item">
-          <div class="segment-marker" style="background: #475569;"></div>
-          <div class="segment-info">
-            <div class="segment-code">OTHERS</div>
-            <div class="segment-name">その他</div>
-          </div>
-          <div class="segment-value">
-            <div class="num">¥0.3T</div>
-            <div class="pct">2.8%</div>
-          </div>
-        </div>
+      <div class="segment-list" id="segment-list">
+        <!-- Segment items are rendered by JS from data.segments -->
       </div>
     </div>
   </div>
@@ -1346,9 +1245,9 @@
 
     <div class="stock-header scroll-reveal">
       <div class="stock-price-block">
-        <div class="stock-ticker">6758.T · Tokyo Stock Exchange</div>
-        <div class="stock-price">¥2,840.0</div>
-        <div class="stock-delta">▲ +12.5 (+0.44%) · Last 24h</div>
+        <div class="stock-ticker" id="stock-ticker">6758.T · Tokyo Stock Exchange</div>
+        <div class="stock-price" id="stock-price">¥—</div>
+        <div class="stock-delta" id="stock-delta">— · Last update pending</div>
       </div>
       <div class="period-tabs">
         <button class="period-tab">1M</button>
@@ -1422,16 +1321,151 @@
   <div class="container">
     <div class="footer-inner">
       <div>SONY LENS · Built as a fan project · MIT License</div>
-      <div>Data: Sony IR / J-Quants API</div>
+      <div id="footer-data-source">Data: —</div>
       <div class="footer-warn">⚠ NOT INVESTMENT ADVICE</div>
+    </div>
+    <div style="margin-top: 16px; font-size: 10px; color: var(--text-mute); opacity: 0.7;" id="footer-meta">
+      <!-- Last updated info injected here -->
     </div>
   </div>
 </footer>
 
 <script>
   /* ========================================
-     [A++] DRAMATIC LOADING SEQUENCE
+     [DATA] Sony Group financial data (FY2024)
+     Source: Sony IR / IRBANK (https://irbank.net/E01777/segment)
+     Basis: 連結ベース(金融含む7セグメント)
+     This object mirrors kpi.json + segments.json + metadata.json
+     Edit these values to update the site.
   ======================================== */
+  const SONY_DATA = {
+    metadata: {
+      fiscal_year_label: 'FY24',
+      period_label: '2024年4月 - 2025年3月期',
+      ticker: '6758.T',
+      last_updated: '2026-05-21',
+      data_source: 'Sony IR / IRBANK'
+    },
+    kpi: [
+      { key: 'revenue',          label: 'Revenue / FY24',    target: 12.96, decimals: 2, unit: 'T', delta: '▼ -0.5% YoY', deltaClass: 'down' },
+      { key: 'operating_income', label: 'Operating Income',  target: 1.41,  decimals: 2, unit: 'T', delta: '▲ +16.0% YoY', deltaClass: 'up' },
+      { key: 'stock_price',      label: 'Stock Price (TYO)', target: 2840,  decimals: 0, unit: '',  delta: '— Reference value', deltaClass: 'flat' },
+      { key: 'market_cap',       label: 'Market Cap',        target: 21.99, decimals: 2, unit: 'T', delta: '— As of 2026-05', deltaClass: 'flat' }
+    ],
+    segments: [
+      { code: 'G&NS',      name: 'ゲーム & ネットワークサービス',              revenue: 4.54, share: 35.0, yoy: 8.9,   color: '#00D9FF', glow: true },
+      { code: 'ET&S',      name: 'エンタテインメント・テクノロジー & サービス', revenue: 2.36, share: 18.2, yoy: -2.2,  color: '#8DF701', glow: true },
+      { code: 'MUSIC',     name: '音楽',                                       revenue: 1.82, share: 14.0, yoy: 14.1,  color: '#4FACFE', glow: false },
+      { code: 'I&SS',      name: 'イメージング & センシング・ソリューション',  revenue: 1.71, share: 13.2, yoy: 13.9,  color: '#9B7EE8', glow: false },
+      { code: 'PICTURES',  name: '映画',                                       revenue: 1.50, share: 11.6, yoy: 0.8,   color: '#C168D6', glow: false },
+      { code: 'FINANCIAL', name: '金融 (2025年10月スピンオフ予定)',            revenue: 0.92, share: 7.1,  yoy: -47.6, color: '#E364B0', glow: false },
+      { code: 'OTHERS',    name: 'その他',                                     revenue: 0.08, share: 0.6,  yoy: 8.8,   color: '#475569', glow: false }
+    ]
+  };
+
+  /* ========================================
+     [RENDER] KPI cards from SONY_DATA.kpi
+  ======================================== */
+  function renderKPICards() {
+    const grid = document.getElementById('kpi-grid');
+    if (!grid) return;
+    grid.innerHTML = SONY_DATA.kpi.map(item => {
+      const initial = item.decimals > 0 ? '0.0' : '0';
+      return `
+        <div class="kpi-card scroll-reveal">
+          <div class="kpi-label">${item.label}</div>
+          <div class="kpi-value">¥<span class="countup" data-target="${item.target}" data-decimals="${item.decimals}">${initial}</span><span class="unit">${item.unit}</span></div>
+          <div class="kpi-delta ${item.deltaClass}">${item.delta}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  /* ========================================
+     [RENDER] Donut chart from SONY_DATA.segments
+     Geometry: r=80, circumference = 2π*80 ≈ 502.65
+     Each segment's stroke-dasharray length = (share/100) * circumference
+  ======================================== */
+  const DONUT_RADIUS = 80;
+  const DONUT_CIRC = 2 * Math.PI * DONUT_RADIUS; // ≈ 502.65
+
+  function renderDonut() {
+    const svg = document.getElementById('donut-svg');
+    if (!svg) return;
+    let cumulative = 0;
+    const circles = SONY_DATA.segments.map(seg => {
+      const len = (seg.share / 100) * DONUT_CIRC;
+      const offset = -cumulative;
+      cumulative += len;
+      // initial dasharray is "0 CIRC" so segments draw in on scroll
+      return `<circle class="donut-segment"
+                cx="100" cy="100" r="${DONUT_RADIUS}"
+                stroke="${seg.color}"
+                data-len="${len.toFixed(2)}"
+                data-offset="${offset.toFixed(2)}"
+                style="stroke-dasharray: 0 ${DONUT_CIRC.toFixed(2)};"/>`;
+    }).join('');
+    svg.innerHTML = circles;
+
+    const totalRevenue = SONY_DATA.kpi.find(k => k.key === 'revenue')?.target;
+    document.getElementById('donut-center-value').textContent =
+      totalRevenue ? `¥${totalRevenue.toFixed(2)}T` : '¥—';
+    document.getElementById('donut-center-unit').textContent = SONY_DATA.metadata.fiscal_year_label;
+  }
+
+  /* ========================================
+     [RENDER] Segment list from SONY_DATA.segments
+  ======================================== */
+  function renderSegmentList() {
+    const list = document.getElementById('segment-list');
+    if (!list) return;
+    list.innerHTML = SONY_DATA.segments.map(seg => {
+      const glowStyle = seg.glow
+        ? `background: ${seg.color}; box-shadow: 0 0 8px ${seg.color};`
+        : `background: ${seg.color};`;
+      const revenueStr = seg.revenue >= 0.1
+        ? `¥${seg.revenue.toFixed(2)}T`
+        : `¥${(seg.revenue * 1000).toFixed(0)}B`;
+      return `
+        <div class="segment-item">
+          <div class="segment-marker" style="${glowStyle}"></div>
+          <div class="segment-info">
+            <div class="segment-code">${seg.code}</div>
+            <div class="segment-name">${seg.name}</div>
+          </div>
+          <div class="segment-value">
+            <div class="num">${revenueStr}</div>
+            <div class="pct">${seg.share.toFixed(1)}%</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  /* ========================================
+     [RENDER] Stock header & footer meta
+  ======================================== */
+  function renderStockAndFooter() {
+    const stockPrice = SONY_DATA.kpi.find(k => k.key === 'stock_price');
+    if (stockPrice) {
+      document.getElementById('stock-price').textContent =
+        `¥${stockPrice.target.toLocaleString()}`;
+      document.getElementById('stock-delta').textContent =
+        '※ 参考値 · 株価は静的データ(API連携は今後実装予定)';
+    }
+    document.getElementById('footer-data-source').textContent =
+      `Data: ${SONY_DATA.metadata.data_source}`;
+    document.getElementById('footer-meta').textContent =
+      `Fiscal Year: ${SONY_DATA.metadata.period_label} · Last updated: ${SONY_DATA.metadata.last_updated} · Ticker: ${SONY_DATA.metadata.ticker}`;
+  }
+
+  /* ========================================
+     [INIT] Render everything synchronously (before observers attach)
+  ======================================== */
+  renderKPICards();
+  renderDonut();
+  renderSegmentList();
+  renderStockAndFooter();
   const loader = document.getElementById('loader');
   const loaderNum = document.getElementById('loader-num');
   const loaderFill = document.getElementById('loader-fill');

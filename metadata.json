@@ -1,0 +1,38 @@
+{
+  "site": {
+    "name": "Sony Lens",
+    "tagline": "Through the Lens of Sony Group",
+    "version": "0.2.0"
+  },
+  "data": {
+    "last_updated": "2026-05-21",
+    "fiscal_year": "FY2024",
+    "ticker": "6758.T",
+    "company_name_ja": "ソニーグループ株式会社",
+    "company_name_en": "Sony Group Corporation",
+    "exchange": "Tokyo Stock Exchange"
+  },
+  "sources": [
+    {
+      "name": "ソニーグループ IR情報",
+      "url": "https://www.sony.com/ja/SonyInfo/IR/",
+      "type": "primary"
+    },
+    {
+      "name": "IRBANK - ソニーグループ(6758)",
+      "url": "https://irbank.net/E01777/segment",
+      "type": "aggregator"
+    },
+    {
+      "name": "EDINET - 有価証券報告書",
+      "url": "https://disclosure.edinet-fsa.go.jp/",
+      "type": "primary"
+    }
+  ],
+  "notes": [
+    "本サイトは個人の学習・研究目的で作成されたファンサイトです",
+    "ソニーグループ株式会社の公式サイトではありません",
+    "投資助言を目的としたものではありません",
+    "数値は決算発表時の公表値に基づいていますが、最新値と差異がある可能性があります"
+  ]
+}

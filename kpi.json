@@ -1,0 +1,50 @@
+{
+  "fiscal_year": "FY2024",
+  "fiscal_year_label": "FY24",
+  "period_label": "2024年4月 - 2025年3月期",
+  "basis": "連結ベース(金融含む)",
+  "kpi": {
+    "revenue": {
+      "value": 12.96,
+      "unit": "T",
+      "currency": "JPY",
+      "yoy_change_pct": -0.5,
+      "label": "Revenue / FY24",
+      "note": "売上高及び金融ビジネス収入"
+    },
+    "operating_income": {
+      "value": 1.41,
+      "unit": "T",
+      "currency": "JPY",
+      "yoy_change_pct": 16.0,
+      "label": "Operating Income",
+      "note": "営業利益"
+    },
+    "net_income": {
+      "value": 1.14,
+      "unit": "T",
+      "currency": "JPY",
+      "yoy_change_pct": null,
+      "label": "Net Income",
+      "note": "親会社株主帰属当期純利益(過去最高)"
+    },
+    "stock_price": {
+      "value": 2840,
+      "unit": "",
+      "currency": "JPY",
+      "yoy_change_pct": null,
+      "label": "Stock Price (TYO)",
+      "note": "終値(参考値・要更新)",
+      "is_placeholder": true
+    },
+    "market_cap": {
+      "value": 21.99,
+      "unit": "T",
+      "currency": "JPY",
+      "yoy_change_pct": null,
+      "label": "Market Cap",
+      "note": "2026年5月時点(参考値・要更新)",
+      "is_placeholder": true
+    }
+  }
+}
