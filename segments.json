@@ -11,7 +11,9 @@
       "yoy_change_pct": 8.9,
       "operating_income_billion": 414.8,
       "operating_margin_pct": 9.1,
-      "color": "#00D9FF"
+      "color": "#00D9FF",
+      "driver_ja": "PlayStation のプラットフォーム、ソフトウェア、ネットワークサービスが最大の売上基盤。",
+      "insight_ja": "規模は最大。利益率は中位なので、ハードウェア単体よりもソフト・サービス比率の上昇が収益性の鍵になります。"
     },
     {
       "code": "ET&S",
@@ -22,7 +24,9 @@
       "yoy_change_pct": -2.2,
       "operating_income_billion": 190.9,
       "operating_margin_pct": 8.1,
-      "color": "#8DF701"
+      "color": "#8DF701",
+      "driver_ja": "テレビ、カメラ、オーディオなどのコンシューマー機器群。",
+      "insight_ja": "売上は大きい一方で、景気や製品サイクルの影響を受けやすい領域です。"
     },
     {
       "code": "MUSIC",
@@ -33,7 +37,9 @@
       "yoy_change_pct": 14.1,
       "operating_income_billion": 357.3,
       "operating_margin_pct": 19.6,
-      "color": "#4FACFE"
+      "color": "#4FACFE",
+      "driver_ja": "音楽出版、録音音楽、アーティスト・IP のグローバル展開。",
+      "insight_ja": "成長率と利益率の両方が強く、ソニーのエンタメ IP 戦略を支える高収益セグメントです。"
     },
     {
       "code": "I&SS",
@@ -44,7 +50,9 @@
       "yoy_change_pct": 13.9,
       "operating_income_billion": 261.1,
       "operating_margin_pct": 15.2,
-      "color": "#9B7EE8"
+      "color": "#9B7EE8",
+      "driver_ja": "スマートフォンや産業機器向けの CMOS イメージセンサー。",
+      "insight_ja": "B2B 色が強く、ソニーの技術優位が収益に直結しやすい領域です。"
     },
     {
       "code": "PICTURES",
@@ -55,7 +63,9 @@
       "yoy_change_pct": 0.8,
       "operating_income_billion": 117.3,
       "operating_margin_pct": 7.8,
-      "color": "#C168D6"
+      "color": "#C168D6",
+      "driver_ja": "映画・テレビ制作、配給、ライブラリ IP。",
+      "insight_ja": "IP の価値は大きいものの、作品ごとの変動が出やすい事業です。"
     },
     {
       "code": "FINANCIAL",
@@ -67,6 +77,8 @@
       "operating_income_billion": 130.5,
       "operating_margin_pct": 14.2,
       "color": "#E364B0",
+      "driver_ja": "生命保険、損害保険、銀行などの金融サービス。",
+      "insight_ja": "収益性は一定ありますが、グループ本体との資本構成やスピンオフ予定により見方を分ける必要があります。",
       "note": "2025年10月にスピンオフ予定"
     },
     {
@@ -78,7 +90,9 @@
       "yoy_change_pct": 8.8,
       "operating_income_billion": -18.0,
       "operating_margin_pct": -21.8,
-      "color": "#475569"
+      "color": "#475569",
+      "driver_ja": "その他事業および調整項目。",
+      "insight_ja": "全体への規模影響は小さいものの、営業損益ではマイナスのため集計上のノイズとして扱うのが妥当です。"
     }
   ]
 }
