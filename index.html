@@ -349,7 +349,20 @@
     cursor: pointer;
   }
   @media (max-width: 768px) {
-    .nav { display: none; }
+    .header-inner { position: relative; }
+    .nav {
+      display: none;
+      position: absolute;
+      top: calc(100% + 18px);
+      left: 0;
+      right: 0;
+      padding: 18px;
+      background: rgba(5, 6, 9, 0.94);
+      border: 1px solid var(--border-faint);
+      flex-direction: column;
+      gap: 16px;
+    }
+    .nav.open { display: flex; }
     .menu-btn { display: block; }
   }
 
@@ -666,6 +679,49 @@
   .kpi-delta.up { color: var(--accent2); }
   .kpi-delta.down { color: var(--negative); }
   .kpi-delta.flat { color: var(--text-mute); }
+  .insight-strip {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .insight-item {
+    min-height: 116px;
+    padding: 18px;
+    border: 1px solid var(--border-faint);
+    background: rgba(255, 255, 255, 0.025);
+    position: relative;
+  }
+  .insight-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 1px;
+    background: var(--insight-color, var(--accent));
+  }
+  .insight-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .insight-value {
+    font-family: var(--font-display);
+    font-size: 26px;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .insight-copy {
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.7;
+  }
 
   /* ========================================
      SEGMENTS
@@ -746,6 +802,9 @@
     padding: 18px 20px;
     background: var(--bg-card);
     border: 1px solid var(--border-faint);
+    color: inherit;
+    width: 100%;
+    text-align: left;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: grid;
@@ -756,6 +815,13 @@
     cursor: pointer;
     opacity: 0;
     transform: translateX(-30px);
+  }
+  .segment-item:focus-visible,
+  .metric-tab:focus-visible,
+  .period-tab:focus-visible,
+  .menu-btn:focus-visible {
+    outline: 2px solid var(--accent2);
+    outline-offset: 3px;
   }
   .segment-item.visible {
     opacity: 1;
@@ -806,6 +872,19 @@
     font-family: var(--font-mono);
     font-size: 11px;
     color: var(--text-secondary);
+  }
+  .segment-bar {
+    grid-column: 2 / 4;
+    height: 3px;
+    background: rgba(120, 200, 240, 0.08);
+    overflow: hidden;
+  }
+  .segment-bar-fill {
+    display: block;
+    height: 100%;
+    width: var(--bar-width, 0%);
+    background: var(--segment-color, var(--accent));
+    box-shadow: 0 0 10px var(--segment-color, var(--accent));
   }
   .segment-controls {
     display: flex;
@@ -1065,6 +1144,15 @@
     font-size: 13px;
     line-height: 1.65;
   }
+  .chart-range {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-mute);
+  }
 
   /* ========================================
      STATEMENT
@@ -1152,6 +1240,20 @@
     color: var(--negative);
     opacity: 0.7;
   }
+  .footer-sources {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+  .footer-sources a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-faint);
+  }
+  .footer-sources a:hover { color: var(--accent2); }
 
   .scroll-reveal {
     opacity: 0;
@@ -1187,6 +1289,7 @@
     .kpi-grid { grid-template-columns: 1fr; }
     .kpi-card { padding: 22px; }
     .kpi-value { font-size: 36px; }
+    .insight-strip { grid-template-columns: 1fr; }
     .segment-controls { align-items: stretch; }
     .metric-tabs {
       width: 100%;
@@ -1204,6 +1307,7 @@
       align-items: baseline;
       gap: 10px;
     }
+    .segment-bar { grid-column: 2; }
     .segment-detail {
       grid-template-columns: 1fr;
       padding: 22px;
@@ -1275,13 +1379,13 @@
       <span class="logo-dot"></span>
       SONY&nbsp;LENS
     </a>
-    <nav class="nav">
+    <nav class="nav" id="nav">
       <a href="#highlights">Highlights</a>
       <a href="#segments">Segments</a>
       <a href="#stock">Stock</a>
-      <a href="#" target="_blank">GitHub</a>
+      <a href="https://github.com/hikaru-ino/sony-lens" target="_blank" rel="noreferrer">GitHub</a>
     </nav>
-    <button class="menu-btn">MENU</button>
+    <button class="menu-btn" id="menu-btn" type="button" aria-controls="nav" aria-expanded="false">MENU</button>
   </div>
 </header>
 
@@ -1407,6 +1511,9 @@
     <div class="kpi-grid" id="kpi-grid">
       <!-- KPI cards are rendered from SONY_DATA.kpi in the script block below. -->
     </div>
+    <div class="insight-strip scroll-reveal" id="insight-strip">
+      <!-- Executive insights are rendered from SONY_DATA.segments. -->
+    </div>
   </div>
 </section>
 
@@ -1474,7 +1581,9 @@
     </div>
 
     <div class="chart-container scroll-reveal" id="chart-container">
-      <svg class="chart-svg" viewBox="0 0 800 280" preserveAspectRatio="none">
+      <svg class="chart-svg" viewBox="0 0 800 280" preserveAspectRatio="none" role="img" aria-labelledby="chart-title chart-desc">
+        <title id="chart-title">Sony Group stock reference chart</title>
+        <desc id="chart-desc">Reference price movement drawn from static sample data. It is not real-time market data.</desc>
         <defs>
           <linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#8DF701" stop-opacity="0.3"/>
@@ -1509,6 +1618,10 @@
         <text class="chart-axis-label" id="chart-label-3" x="600" y="270">Oct</text>
         <text class="chart-axis-label" id="chart-label-4" x="770" y="270">Dec</text>
       </svg>
+    </div>
+    <div class="chart-range scroll-reveal" id="chart-range">
+      <span>Range: —</span>
+      <span>Reference sample</span>
     </div>
 
     <div class="stock-context scroll-reveal">
@@ -1558,6 +1671,9 @@
     <div style="margin-top: 16px; font-size: 10px; color: var(--text-mute); opacity: 0.7;" id="footer-meta">
       <!-- Last updated info injected here -->
     </div>
+    <div class="footer-sources" id="footer-sources">
+      <!-- Source links injected here -->
+    </div>
   </div>
 </footer>
 
@@ -1575,7 +1691,12 @@
       period_label: '2024年4月 - 2025年3月期',
       ticker: '6758.T',
       last_updated: '2026-05-21',
-      data_source: 'Sony IR / IRBANK'
+      data_source: 'Sony IR / IRBANK',
+      sources: [
+        { name: 'Sony IR', url: 'https://www.sony.com/ja/SonyInfo/IR/' },
+        { name: 'IRBANK', url: 'https://irbank.net/E01777/segment' },
+        { name: 'EDINET', url: 'https://disclosure.edinet-fsa.go.jp/' }
+      ]
     },
     kpi: [
       { key: 'revenue',          label: 'Revenue / FY24',    target: 12.96, decimals: 2, unit: 'T', delta: '▼ -0.5% YoY', deltaClass: 'down' },
@@ -1752,6 +1873,19 @@
     return `${sign}${value.toFixed(1)}%`;
   }
 
+  function getSegmentLeaders() {
+    const sortedByRevenue = [...SONY_DATA.segments].sort((a, b) => b.revenue - a.revenue);
+    const sortedByIncome = [...SONY_DATA.segments].sort((a, b) => b.operatingIncome - a.operatingIncome);
+    const sortedByMargin = [...SONY_DATA.segments].sort((a, b) => b.margin - a.margin);
+    const sortedByGrowth = [...SONY_DATA.segments].sort((a, b) => b.yoy - a.yoy);
+    return {
+      revenue: sortedByRevenue[0],
+      income: sortedByIncome[0],
+      margin: sortedByMargin[0],
+      growth: sortedByGrowth[0]
+    };
+  }
+
   /* ========================================
      [RENDER] KPI cards from SONY_DATA.kpi
   ======================================== */
@@ -1768,6 +1902,51 @@
         </div>
       `;
     }).join('');
+  }
+
+  function renderExecutiveInsights() {
+    const strip = document.getElementById('insight-strip');
+    if (!strip) return;
+    const leaders = getSegmentLeaders();
+    const totalRevenue = SONY_DATA.kpi.find(k => k.key === 'revenue')?.target || 0;
+    const totalIncome = SONY_DATA.kpi.find(k => k.key === 'operating_income')?.target || 0;
+    const incomeShare = totalIncome > 0
+      ? (leaders.income.operatingIncome / (totalIncome * 1000)) * 100
+      : 0;
+    const insights = [
+      {
+        label: 'Largest Revenue',
+        value: leaders.revenue.code,
+        copy: `${formatRevenue(leaders.revenue.revenue)} / group revenue ${((leaders.revenue.revenue / totalRevenue) * 100).toFixed(1)}%`,
+        color: leaders.revenue.color
+      },
+      {
+        label: 'Top Profit',
+        value: leaders.income.code,
+        copy: `Operating income ¥${leaders.income.operatingIncome.toFixed(1)}B / ${incomeShare.toFixed(1)}% of total OI`,
+        color: leaders.income.color
+      },
+      {
+        label: 'Best Margin',
+        value: leaders.margin.code,
+        copy: `${leaders.margin.margin.toFixed(1)}% margin. Asset-light IP and technology businesses stand out.`,
+        color: leaders.margin.color
+      },
+      {
+        label: 'Fastest Growth',
+        value: leaders.growth.code,
+        copy: `${formatSignedPercent(leaders.growth.yoy)} YoY. Growth quality should be read with margin and scale.`,
+        color: leaders.growth.color
+      }
+    ];
+
+    strip.innerHTML = insights.map(item => `
+      <div class="insight-item" style="--insight-color: ${item.color};">
+        <div class="insight-label">${item.label}</div>
+        <div class="insight-value">${item.value}</div>
+        <div class="insight-copy">${item.copy}</div>
+      </div>
+    `).join('');
   }
 
   /* ========================================
@@ -1816,6 +1995,7 @@
     if (!list) return;
     const metric = METRIC_CONFIG[selectedMetric];
     const revealed = list.dataset.revealed === 'true';
+    const maxMetric = Math.max(...SONY_DATA.segments.map(seg => metric.weight(seg)));
     list.innerHTML = SONY_DATA.segments.map(seg => {
       const glowStyle = seg.glow
         ? `background: ${seg.color}; box-shadow: 0 0 8px ${seg.color};`
@@ -1824,8 +2004,9 @@
       const subValue = selectedMetric === 'margin'
         ? `OI ${seg.operatingIncome.toFixed(1)}B`
         : `YoY ${formatSignedPercent(seg.yoy)}`;
+      const barWidth = maxMetric > 0 ? (metric.weight(seg) / maxMetric) * 100 : 0;
       return `
-        <div class="segment-item ${revealed ? 'visible' : ''} ${seg.code === selectedSegmentCode ? 'active' : ''}" data-code="${seg.code}" style="--segment-color: ${seg.color};">
+        <button class="segment-item ${revealed ? 'visible' : ''} ${seg.code === selectedSegmentCode ? 'active' : ''}" type="button" data-code="${seg.code}" style="--segment-color: ${seg.color}; --bar-width: ${barWidth.toFixed(1)}%;" aria-pressed="${seg.code === selectedSegmentCode}">
           <div class="segment-marker" style="${glowStyle}"></div>
           <div class="segment-info">
             <div class="segment-code">${seg.code}</div>
@@ -1835,7 +2016,8 @@
             <div class="num">${metricValue}</div>
             <div class="pct">${subValue}</div>
           </div>
-        </div>
+          <span class="segment-bar" aria-hidden="true"><span class="segment-bar-fill"></span></span>
+        </button>
       `;
     }).join('');
   }
@@ -1898,6 +2080,12 @@
       `Data: ${SONY_DATA.metadata.data_source}`;
     document.getElementById('footer-meta').textContent =
       `Fiscal Year: ${SONY_DATA.metadata.period_label} · Last updated: ${SONY_DATA.metadata.last_updated} · Ticker: ${SONY_DATA.metadata.ticker}`;
+    const sources = document.getElementById('footer-sources');
+    if (sources) {
+      sources.innerHTML = SONY_DATA.metadata.sources.map(source =>
+        `<a href="${source.url}" target="_blank" rel="noreferrer">${source.name}</a>`
+      ).join('');
+    }
   }
 
   function renderStockChart(period = '1Y') {
@@ -1932,17 +2120,37 @@
 
     document.getElementById('stock-price').textContent = `¥${series.price.toLocaleString()}`;
     document.getElementById('stock-delta').textContent = `▲ ${series.delta} · ${period} reference`;
+    const range = document.getElementById('chart-range');
+    if (range) {
+      range.innerHTML = `<span>Range: ¥${min.toLocaleString()} - ¥${max.toLocaleString()}</span><span>${period} static reference sample</span>`;
+    }
     document.querySelectorAll('.period-tab').forEach(tab => {
       tab.classList.toggle('active', tab.dataset.period === period);
+      tab.setAttribute('aria-pressed', String(tab.dataset.period === period));
     });
   }
 
   function setupInteractions() {
+    const menuBtn = document.getElementById('menu-btn');
+    const nav = document.getElementById('nav');
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = nav?.classList.toggle('open') || false;
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    nav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuBtn?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     document.querySelectorAll('.metric-tab').forEach(tab => {
+      tab.setAttribute('aria-pressed', String(tab.dataset.metric === selectedMetric));
       tab.addEventListener('click', () => {
         selectedMetric = tab.dataset.metric;
         document.querySelectorAll('.metric-tab').forEach(item => {
           item.classList.toggle('active', item.dataset.metric === selectedMetric);
+          item.setAttribute('aria-pressed', String(item.dataset.metric === selectedMetric));
         });
         renderSegments();
       });
@@ -1971,6 +2179,7 @@
      [INIT] Render everything synchronously (before observers attach)
   ======================================== */
   renderKPICards();
+  renderExecutiveInsights();
   renderSegments();
   renderStockAndFooter();
   renderStockChart('1Y');
