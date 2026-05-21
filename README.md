@@ -40,7 +40,7 @@
 | フロントエンド | 静的 HTML / CSS / JavaScript | 依存なしで表示でき、プロトタイプの共有がしやすい |
 | スタイリング | CSS カスタムプロパティ | 単一ファイルでもテーマと配色を管理しやすい |
 | データ可視化 | SVG + Vanilla JS | ドーナツチャートと株価チャートを軽量に描画 |
-| データ | `kpi.json` / `segments.json` / `metadata.json` | 将来のデータ分離に備えた静的データ |
+| データ | `kpi.json` / `segments.json` / `metadata.json` / `stock.json` | 表示データを HTML から分離して更新しやすくする |
 | ホスティング | GitHub Pages などの静的ホスティング | ビルド不要で公開可能 |
 
 ## 🗂 データソース
@@ -55,9 +55,7 @@
 
 ## 🚀 セットアップ
 
-依存パッケージはありません。`index.html` をブラウザで開くと表示できます。
-
-ローカルサーバーで確認する場合:
+依存パッケージはありません。JSON を `fetch` で読み込むため、ローカルサーバー経由で確認してください。
 
 ```bash
 python3 -m http.server 8000
@@ -70,9 +68,11 @@ python3 -m http.server 8000
 ```
 sony-lens/
 ├── index.html            # アプリ本体
+├── app.js                # 描画・インタラクション・JSON 読み込み
 ├── kpi.json              # KPI データ
 ├── segments.json         # セグメント別データ
 ├── metadata.json         # サイト情報と出典
+├── stock.json            # 参考株価チャート用サンプルデータ
 └── README.md
 ```
 
@@ -84,7 +84,8 @@ sony-lens/
 - [ ] Phase 4: IR ニュースフィードの統合
 - [ ] Phase 5: パーソナライズ機能(生年からのプロダクト提示)
 - [x] Phase 6: 初期パフォーマンス改善・アクセシビリティ対応
-- [ ] Phase 7: JSON を唯一のデータソースにして `index.html` の埋め込みデータを削減
+- [x] Phase 7: JSON をデータソースにして `index.html` の埋め込みデータを削減
+- [ ] Phase 8: 複数年度データの追加と FY 比較
 
 ## 📜 ライセンス
 
